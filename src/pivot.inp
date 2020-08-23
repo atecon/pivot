@@ -1,0 +1,51 @@
+function matrix pivot (const matrix m,
+                        const int index[1::] "Column acting as a index",
+                        const matrix columns "Column to use to make new matrix's columns",
+                        const matrix values "Columns to use for populating new frame’s values.")
+    /* Main function.
+    Inspired by: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html*/
+
+    bundle self = null
+
+    matrix self.m = m
+    scalar self.index = index
+    matrix self.values = vec(values)
+    matrix self.columns = vec(columns)
+
+    matrix self.val_index = values(m[, index])
+    matrices self.val_columns = matrix_values(m[, self.columns])
+    matrices self.val_values = matrix_values(m[, self.values])
+
+    eval self.val_index
+    eval self.val_columns[1]
+    eval self.val_values[1]
+
+
+
+    return variable
+end function
+
+function matrices matrix_values (const matrix m)
+    /* Retrieve distinct values for each column of 'm'. */
+
+    matrices M = array(cols(m))
+    loop i=1..cols(m)
+        M[i] = values(m[,i])
+    endloop
+
+    return M
+end function
+
+function void compile_column_labels (bundle *self)
+    /* */
+
+    scalar n = rows(self.values) + rows(self.columns)
+
+    loop i = 1..n
+
+    endloop
+end function
+
+
+
+

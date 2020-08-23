@@ -1,0 +1,32 @@
+Reshape data (produce a “pivot” table) based on column values. Uses unique values from specified index / columns to form axes of the resulting DataFrame. This function does not support data aggregation, multiple values will result in a MultiIndex in the columns. See the User Guide for more on reshaping.
+
+Parameters
+
+    indexstr or object or a list of str, optional
+
+        Column to use to make new frame’s index. If None, uses existing index.
+
+        Changed in version 1.1.0: Also accept list of index names.
+    columnsstr or object or a list of str
+
+        Column to use to make new frame’s columns.
+
+        Changed in version 1.1.0: Also accept list of columns names.
+    valuesstr, object or a list of the previous, optional
+
+        Column(s) to use for populating new frame’s values. If not specified, all remaining columns will be used and the result will have hierarchically indexed columns.
+
+        Changed in version 0.23.0: Also accept list of column names.
+
+Returns
+
+    DataFrame
+
+        Returns reshaped DataFrame.
+
+Raises
+
+    ValueError:
+
+        When there are any index, columns combinations with multiple values. DataFrame.pivot_table when you need to aggregate.
+

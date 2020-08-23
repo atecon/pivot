@@ -1,0 +1,29 @@
+set verbose off
+clear
+
+include "./src/pivot.inp" --force
+include assertion.gfn
+
+function void test_pivot (void)
+
+
+    matrix m = {1, 1, 1;\
+                2, 2, 2;\
+                3, 3, 3;\
+                1, 4, 4;\
+                2, 5, 5;\
+                3, 6, 6}
+
+    matrix r = pivot(m, 1, {2}, {3})
+
+/*
+df.pivot(index='foo', columns='bar', values='baz')
+bar  A   B   C
+foo
+one  1   2   3
+two  4   5   6
+*/
+end function
+test_pivot()
+
+printf "\nInfo: All tests passed.\n"
